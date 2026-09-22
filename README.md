@@ -1,66 +1,45 @@
 # Nothingraph
 
-**Локальная база знаний на markdown с двусторонними связями и интерактивным графом.**
+**A local-first markdown knowledge base with bidirectional links and an interactive graph.**
 
-Лёгкая опенсорсная альтернатива Obsidian — на Tauri + React.
+A lightweight open-source alternative to Obsidian — built on Tauri + React.
 
-> ⚠️ **Статус: сырой pet-проект.** Nothingraph пишется в свободное время, ради
-> интереса и практики, а не как продакшен-ready продукт. Многое ещё не
-> доделано, API и формат вещей могут ломаться между коммитами, тестов почти
-> нет. Не стоит относиться к нему слишком серьёзно, хранить в нём
-> единственную копию важных заметок или ждать стабильности — но баг-репорты,
-> форки и pull request'ы только приветствуются.
+> ⚠ **Status: rough pet project.** Nothingraph is built in spare time, for fun
+> and practice, not as a production-ready product. Much is still unfinished,
+> APIs and formats may break between commits, and there are almost no tests.
+> Don't take it too seriously, don't store your only copy of important notes
+> in it, and don't expect stability — but bug reports, forks, and pull
+> requests are very welcome.
 
-## Возможности (на сейчас)
+## Features (current)
 
-- Открытие любой папки как «vault» (desktop)
-- Markdown-заметки со связями `[[Wiki-style links]]`
-- Автоматическая панель backlinks
-- Интерактивный force-directed граф (клик по узлу открывает заметку)
-- Полнотекстовый поиск
-- Теги (`#tag`)
-- Тёмная тема
-- Автосохранение при потере фокуса (desktop)
-- Demo vault для тестирования в браузере
+- Open any folder as a "vault" (desktop)
+- Markdown notes with `[[Wiki-style links]]`
+- Automatic backlinks panel
+- Interactive force-directed graph (click a node to open the note)
+- Full-text search
+- Tags (`#tag`)
+- Dark theme
+- Auto-save on focus loss (desktop)
+- Demo vault for browser testing
 
-## Платформы
+## Platforms
 
-| Платформа | Статус         | Форматы                     |
-|-----------|----------------|------------------------------|
-| Windows   | Поддерживается | `.msi` / `.exe`             |
-| macOS     | Поддерживается | `.dmg` (Intel + ARM)        |
-| Linux     | Поддерживается | `.AppImage`, `.deb`, `.rpm`  |
-| Web       | Только демо    | —                            |
+| Platform | Status        | Formats                      |
+|----------|---------------|------------------------------|
+| Windows  | Supported     | `.msi` / `.exe`              |
+| macOS    | Supported     | `.dmg` (Intel + ARM)         |
+| Linux    | Supported     | `.AppImage`, `.deb`, `.rpm`  |
+| Web      | Demo only     | —                            |
 
-## Разработка
+## Development
 
-### Требования
+### Requirements
 
 - Node.js ≥ 20
 - Rust (stable)
-- Системные зависимости Tauri: https://v2.tauri.app/start/prerequisites/
+- Tauri system dependencies: https://v2.tauri.app/start/prerequisites/
 
 ```bash
 npm install
 npm run tauri:dev
-```
-
-### Структура проекта
-
-```
-nothingraph/
-├── apps/desktop/          # Tauri + React приложение
-├── packages/core/         # Парсер, линкер, граф, поиск, vault
-├── packages/shared/       # Типы и утилиты
-├── docs/                  # Документация
-└── examples/demo-vault/   # Примеры заметок
-```
-
-## Контрибьюторы
-
-Идеи и код в проекте местами обсуждались/дорабатывались с помощью AI-ассистентов
-(Claude, Grok) — см. `CONTRIBUTORS.md`.
-
-## Лицензия
-
-MIT
