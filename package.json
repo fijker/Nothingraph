@@ -1,0 +1,28 @@
+{
+  "name": "nothingraph",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first markdown knowledge base with graph view — Obsidian alternative",
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/desktop",
+    "build": "npm run build --workspace=apps/desktop",
+    "tauri": "npm run tauri --workspace=apps/desktop",
+    "tauri:dev": "npm run tauri:dev --workspace=apps/desktop",
+    "tauri:build": "npm run tauri:build --workspace=apps/desktop",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write ."
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
