@@ -1,42 +1,66 @@
 # Nothingraph
 
-**Local-first markdown knowledge base with bidirectional links and interactive graph view.**
+**Локальная база знаний на markdown с двусторонними связями и интерактивным графом.**
 
-A lightweight open-source alternative to Obsidian.
+Лёгкая опенсорсная альтернатива Obsidian — на Tauri + React.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
+> ⚠️ **Статус: сырой pet-проект.** Nothingraph пишется в свободное время, ради
+> интереса и практики, а не как продакшен-ready продукт. Многое ещё не
+> доделано, API и формат вещей могут ломаться между коммитами, тестов почти
+> нет. Не стоит относиться к нему слишком серьёзно, хранить в нём
+> единственную копию важных заметок или ждать стабильности — но баг-репорты,
+> форки и pull request'ы только приветствуются.
 
-## Features
+## Возможности (на сейчас)
 
-- Open any folder as a Vault
-- Markdown notes with `[[Wiki-style links]]`
-- Automatic backlinks
-- Interactive force-directed graph
-- Full-text search
-- Tags (`#tag`)
-- Dark theme
-- Auto-save
-- Lightweight (Tauri, not Electron)
+- Открытие любой папки как «vault» (desktop)
+- Markdown-заметки со связями `[[Wiki-style links]]`
+- Автоматическая панель backlinks
+- Интерактивный force-directed граф (клик по узлу открывает заметку)
+- Полнотекстовый поиск
+- Теги (`#tag`)
+- Тёмная тема
+- Автосохранение при потере фокуса (desktop)
+- Demo vault для тестирования в браузере
 
-## Screenshots
+## Платформы
 
-<!-- позже можно добавить -->
+| Платформа | Статус         | Форматы                     |
+|-----------|----------------|------------------------------|
+| Windows   | Поддерживается | `.msi` / `.exe`             |
+| macOS     | Поддерживается | `.dmg` (Intel + ARM)        |
+| Linux     | Поддерживается | `.AppImage`, `.deb`, `.rpm`  |
+| Web       | Только демо    | —                            |
 
-## Platforms
+## Разработка
 
-| Platform | Status     |
-|----------|------------|
-| Windows  | Supported  |
-| macOS    | Supported  |
-| Linux    | Supported  |
+### Требования
 
-## Installation
-
-### From source
+- Node.js ≥ 20
+- Rust (stable)
+- Системные зависимости Tauri: https://v2.tauri.app/start/prerequisites/
 
 ```bash
-git clone https://github.com/fijker/Nothingraph.git
-cd Nothingraph
 npm install
 npm run tauri:dev
+```
+
+### Структура проекта
+
+```
+nothingraph/
+├── apps/desktop/          # Tauri + React приложение
+├── packages/core/         # Парсер, линкер, граф, поиск, vault
+├── packages/shared/       # Типы и утилиты
+├── docs/                  # Документация
+└── examples/demo-vault/   # Примеры заметок
+```
+
+## Контрибьюторы
+
+Идеи и код в проекте местами обсуждались/дорабатывались с помощью AI-ассистентов
+(Claude, Grok) — см. `CONTRIBUTORS.md`.
+
+## Лицензия
+
+MIT

@@ -14,6 +14,8 @@ export interface Vault {
   path: string;
   name: string;
   notes: Map<string, Note>;
+  /** Relative folder paths known to exist (includes empty ones with no notes yet) */
+  folders: Set<string>;
 }
 
 export interface GraphNode {
