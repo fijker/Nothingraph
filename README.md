@@ -4,7 +4,7 @@
 
 A lightweight open-source alternative to Obsidian — built on Tauri + React.
 
-> ⚠ **Status: rough pet project.** Nothingraph is built in spare time, for fun
+> ⚠️**Status: rough pet project.** Nothingraph is built in spare time, for fun
 > and practice, not as a production-ready product. Much is still unfinished,
 > APIs and formats may break between commits, and there are almost no tests.
 > Don't take it too seriously, don't store your only copy of important notes
