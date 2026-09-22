@@ -3,9 +3,9 @@ name: 'Pre-Release'
 on:
   push:
     tags:
-      - 'v*-pre.*'      # Срабатывает на теги вида v0.1.0-pre.1
-      - 'v*-rc.*'       # Или v0.1.0-rc.1
-  workflow_dispatch:    # Позволяет запускать вручную из вкладки Actions
+      - 'v*-pre.*'
+      - 'v*-rc.*'
+  workflow_dispatch:
 
 jobs:
   publish-tauri:
@@ -16,13 +16,11 @@ jobs:
       matrix:
         include:
           - platform: 'macos-latest'
-            args: '--target aarch64-apple-darwin'
-          - platform: 'macos-latest'
-            args: '--target x86_64-apple-darwin'
+            args: '--target universal-apple-darwin'
           - platform: 'ubuntu-22.04'
             args: ''
           - platform: 'windows-latest'
-            args: ''
+            args: '--bundles nsis'
 
     runs-on: ${{ matrix.platform }}
     steps:
@@ -56,7 +54,7 @@ jobs:
       - name: Rust cache
         uses: swatinem/rust-cache@v2
         with:
-          workspaces: './src-tauri -> target'
+          workspaces: './apps/desktop/src-tauri -> target'
 
       - name: install frontend dependencies
         run: npm install
@@ -65,6 +63,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          projectPath: 'apps/desktop'
           tagName: ${{ github.ref_name }}
           releaseName: 'Nothingraph ${{ github.ref_name }}'
           releaseBody: 'Pre-release build. See assets below.'
